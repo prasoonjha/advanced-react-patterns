@@ -24,10 +24,21 @@ const withClapAnimation = (WrappedComponent) => {
         easing: mojs.easing.out,
       });
 
+      const countTotalAnimation = new mojs.Html({
+        el: "#clapCountTotal",
+        duration: tlDuration,
+        delay: tlDuration / 3,
+        opacity: { 0: 1 },
+        y: { 0: -3 },
+      });
+
       const clap = document.getElementById("clap");
       clap.style.transform = "scale(1,1)";
 
-      const newAnimationTimeline = this.animationTimeline.add([scaleButton]);
+      const newAnimationTimeline = this.animationTimeline.add([
+        scaleButton,
+        countTotalAnimation,
+      ]);
       this.setState({ animationTimeline: newAnimationTimeline });
     }
 
