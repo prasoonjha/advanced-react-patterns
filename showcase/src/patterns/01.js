@@ -24,6 +24,9 @@ const withClapAnimation = (WrappedComponent) => {
         easing: mojs.easing.out,
       });
 
+      const clap = document.getElementById("clap");
+      clap.style.transform = "scale(1,1)";
+
       const newAnimationTimeline = this.animationTimeline.add([scaleButton]);
       this.setState({ animationTimeline: newAnimationTimeline });
     }
